@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ScanApp.Models.GetCodesModel>
+
+
+
+<!--View Barcodes-->
+<h1>View last added Barcodes</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantitate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descriere)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantitate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

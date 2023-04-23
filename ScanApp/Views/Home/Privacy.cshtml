@@ -1,0 +1,63 @@
+﻿@model ScanApp.Models.CodeModel;
+
+<!--View Terminal-->
+<html>
+<h1>Terminal Scan</h1>
+<top>
+
+
+</top>
+<body>
+    <!--Incarca poza sau-->
+    <div class="mb-3">
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+            <span>Select File:</span>
+            <input type="file" name="postedFiles" />
+            <input type="submit" value="Upload" />
+            <br />
+            <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+        </form>
+    </div>
+
+    <!--Scaneaza un cod-->
+    <form asp-controller="Home" asp-action="SendToDatabase" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="control-label">Content:</label>
+            <input asp-for="Content" class="form-control" />
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <button type="submit" id="btndatabase" class="btn btn-primary">Send it to database</button>
+        </div>
+    </form>
+
+    <!--Script pentru focus textbox si keypress enter dupa introducere cod pt a ajuta la scanare cu terminal-->
+    <script type="text/javascript">
+
+				document.getElementById("Content").focus();
+				// Get the input field(nu avem input)
+				//var input = document.getElementById("myInput");
+				// Execute a function when the user presses a key on the keyboard
+				code.addEventListener("keypress", function(event) {
+				// If the user presses the "Enter" key on the keyboard
+				if (event.key == "Enter") {
+					// Cancel the default action, if needed
+					event.preventDefault();
+					// Trigger the button element with a click
+					document.getElementById("btndatabase").click();
+					}
+				});
+    </script>
+
+
+</body>
+</br>
+</br>
+</br>
+<bottom>
+
+
+</bottom>
+</html>
+

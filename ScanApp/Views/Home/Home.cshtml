@@ -1,0 +1,29 @@
+﻿<!-- View Home. Select Device: Phone or Terminal-->
+
+<div class="col d-flex justify-content-center">
+    <div class="card">
+        <div class="card-header">
+            <h5>Select device</h5>
+        </div>
+
+        <div class="card-body">
+
+            <form>
+
+                <div class="mb-3">
+                    <input type="button" value="Phone" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" />
+                </div>
+                <br />
+                <div class="mb-3">
+                    <input type="button" value="Terminal" onclick="@("window.location.href='" + @Url.Action("Privacy", "Home") + "'");" />
+                </div>
+            </form>
+
+        </div>
+
+        <div class="card-footer">
+        </div>
+    </div>
+</div>
+
+
